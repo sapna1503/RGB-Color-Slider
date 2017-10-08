@@ -27,7 +27,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         redSlider.value = 0
         greenSlider.value = 0
         blueSlider.value = 0
-
+        
         txtRed.keyboardType = UIKeyboardType.decimalPad// For number keypad
         txtGreen.keyboardType = UIKeyboardType.decimalPad // For number keypad
         txtBlue.keyboardType = UIKeyboardType.decimalPad // For number keypad
@@ -40,8 +40,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         self.txtRed.inputAssistantItem.leadingBarButtonGroups.removeAll()
         self.txtRed.inputAssistantItem.trailingBarButtonGroups.removeAll()
-
-
+        
+        
         //To change slider value on textbox change
         txtRed.addTarget(self, action: #selector(changeSliderValueOnTextChange(_:)), for: .editingChanged)
         txtGreen.addTarget(self, action: #selector(changeSliderValueOnTextChange(_:)), for: .editingChanged)
@@ -64,13 +64,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
             txtBlue.text = blueTextValue
             changeSliderValueOnTextChange(txtBlue)
         }
-        changeViewColor()
+       changeViewColor()
     }
-
-    func changeViewColor() {
+    
+    func changeViewColor(){
         viewColor.backgroundColor = UIColor(red: CGFloat((redSlider.value) / 100), green: CGFloat((greenSlider.value) / 100), blue: CGFloat((blueSlider.value) / 100), alpha: 1)
     }
-
+    
     @IBAction func changeSliderValueOnTextChange(_ sender: UITextField) {
         if let stringValue = sender.text {
             if let floatValue = Float(stringValue) {
@@ -89,28 +89,28 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    // To validate only numbers in text fields
+    // To validate only numbers in text fields and text length upto 3 digits
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
 //        let aSet = NSCharacterSet.decimalDigits
 //        let characterSet  = NSCharacterSet(charactersIn: string).inverted
-        //    return aSet.isSuperset(of: characterSet)
-        let aSet = NSCharacterSet(charactersIn: "0123456789.").inverted
+    //    return aSet.isSuperset(of: characterSet)
+        let aSet = NSCharacterSet(charactersIn:"0123456789.").inverted
         let compSepByCharInSet = string.components(separatedBy: aSet)
         let numberFiltered = compSepByCharInSet.joined(separator: "")
         return string == numberFiltered
     }
-
-
+    
+    
     // when text > 100 displays alert and sets text to 100
     @IBAction func textEditingChanged(_ sender: UITextField) {
-        
-        
-        if (sender.text!.count >= 3 && Double(sender.text!)! > 100) {
-            createAlert(title: "Input is out of range", message: "Please enter number in range of 0.0 to 100.0")
-            sender.text = "100.0"
+        if ((sender.text!.count >= 3) && (Double(sender.text!)! > 100)) {
+            createAlert(title: "Input is out of range", message: "Please enter number in range of 0 to 100")
+            sender.text = "100"
         }
     }
+    
+    
 
     //Function to give alert
     func createAlert(title: String, message: String) {
@@ -124,54 +124,53 @@ class ViewController: UIViewController, UITextFieldDelegate {
         txtRed.text = String(redSlider.value)
         txtGreen.text = String(greenSlider.value)
         txtBlue.text = String(blueSlider.value)
-        changeViewColor() //  To view color
-        userDefault() //  To store value after app kill
+        changeViewColor()                                   //  To view color
+        userDefault()                                       //  To store value after app kill
     }
 
-
-
+    
+    
     @IBAction func textEditingEnd(_ sender: UITextField) {
-        if(sender.text! == "") {
+        if(sender.text! == "" ){
             sender.text = "0.0"
             changeSliderValueOnTextChange(sender)
         }
-        let x = String(round(10000 * Double(sender.text!)!) / 10000)
-        if ((x != "0.0") && ((sender.text)?.contains("."))!) {
+        let x  = String(round(10000 * Double(sender.text!)!)  / 10000)
+        if ( (x != "0.0"  ) && ((sender.text)?.contains("."))! ){
             sender.text = x
         }
     }
-
+    
     @IBAction func btnColor(_ sender: UIButton) {
         txtRed.resignFirstResponder() // To hide keyboard on button click
         txtGreen.resignFirstResponder() // To hide keyboard on button click
         txtBlue.resignFirstResponder() // To hide keyboard on button click
-
-        changeViewColor() //To view color
-        userDefault() //To store value after app kill
+        
+        changeViewColor()           //To view color
+        userDefault()               //To store value after app kill
     }
 
-    func userDefault() {
+    func userDefault(){
         //To store textbox values after app killed
         UserDefaults.standard.set(txtRed.text, forKey: "RedTextValue")
         UserDefaults.standard.set(txtGreen.text, forKey: "GreenTextValue")
         UserDefaults.standard.set(txtBlue.text, forKey: "BlueTextValue")
-
+        
         //To store textbox values after app killed
         UserDefaults.standard.set(redSlider.value, forKey: "RedSliderValue")
         UserDefaults.standard.set(greenSlider.value, forKey: "GreenSliderValue")
         UserDefaults.standard.set(blueSlider.value, forKey: "BlueSliderValue")
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.view.endEditing(true)
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning(){
         super.didReceiveMemoryWarning()
     }
 }
-
 
 //class UICustomTextField : UITextField {
 //    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
