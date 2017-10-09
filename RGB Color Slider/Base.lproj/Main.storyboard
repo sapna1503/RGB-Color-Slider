@@ -45,7 +45,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zcT-fl-eu5" userLabel="txtRed">
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zcT-fl-eu5" userLabel="txtRed" customClass="UICustomTextField" customModule="RGB_Color_Slider" customModuleProvider="target">
                                 <rect key="frame" x="96" y="74" width="84" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -53,29 +53,31 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="changeSliderValueOnTextChange:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Cik-V9-O75"/>
-                                    <action selector="textEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="0VD-Qj-WBH"/>
-                                    <action selector="textEditingEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="fF6-qJ-ABH"/>
+                                    <action selector="textEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="nBY-jg-b7z"/>
+                                    <action selector="textEditingEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="0ln-fy-O7a"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ttz-dE-uBb" userLabel="txtGreen">
+                            <textField opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ttz-dE-uBb" userLabel="txtGreen" customClass="UICustomTextField" customModule="RGB_Color_Slider" customModuleProvider="target">
                                 <rect key="frame" x="96" y="121" width="84" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="textEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="P6Y-so-sDj"/>
+                                    <action selector="changeSliderValueOnTextChange:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="IbX-Ym-yvt"/>
+                                    <action selector="textEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="jOr-B5-MC0"/>
                                     <action selector="textEditingEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="qUw-PM-vxO"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SAU-S7-oqj" userLabel="txtBlue">
+                            <textField opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SAU-S7-oqj" userLabel="txtBlue" customClass="UICustomTextField" customModule="RGB_Color_Slider" customModuleProvider="target">
                                 <rect key="frame" x="96" y="172" width="84" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
-                                    <action selector="textEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="GB2-ZQ-dsd"/>
+                                    <action selector="changeSliderValueOnTextChange:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="AEU-xG-zK4"/>
+                                    <action selector="textEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="la5-6z-98q"/>
                                     <action selector="textEditingEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="19x-y0-Fqs"/>
                                 </connections>
                             </textField>
